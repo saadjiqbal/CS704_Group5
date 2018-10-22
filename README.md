@@ -28,7 +28,7 @@ CS704_Group5/
 ```
 ---
 
-### HOW TO RUN:
+### How To Run:
 ##### Finding the COM port:
 1. Open the start menu and search for device manager
 2. Scroll down until you see the dropdown for `Ports(COM & LPT)`
@@ -38,11 +38,11 @@ CS704_Group5/
 ##### Simplicity Code:
 Insie the `SimplicityCode` folder, you'll find a `BASE.zip` and a `MOBILE.zip`. These compressed folders contain all the project files, however, we couldn't figure out how to import or export projects in Simplicity. So our suggestion would be to create a new project and copy over the contents of the main.c file.
 
-For the Mobile Station, the project has additional settings through "#define" found at the top of the "main.c" file. There are two methods of calculating distance of mobile station from beacons using RSSI. However, this is prone to causing a crash in the program. To turn this off, change the value of the "DIST_METHOD" define to 0. Turns off distance prints. To use method one, change the value of the "DIST_METHOD" define to 1. Prints distance. To use method two, change the value of the "DIST_METHOD" define to 2. Prints distance. To initialise the external accelerometer and magnetometer sensors, change the value of the "PRINT_I2C" define to 1. Prints success/fail information.
+For the Mobile Station, the project has additional settings through `#define` found at the top of the `main.c` file. There are two methods of calculating distance of mobile station from beacons using RSSI. However, this is prone to causing a crash in the program. To turn this off, change the value of the `DIST_METHOD` define to `0`. Turns off distance prints. To use method one, change the value of the `DIST_METHOD` define to 1. Prints distance. To use method two, change the value of the `DIST_METHOD` define to `2`. Prints distance. To initialise the external accelerometer and magnetometer sensors, change the value of the `PRINT_I2C` define to `1`. Prints success/fail information.
 			
 For the Base Station, this project does not have any special settings. It prints out the value sent from the mobile station over bluetooth to the base station.
 	
-The projects need to be built, and for this we would suggest following the instructions in the Simplicity lab document, however, the one difference would be to copy over the contents of the main.c file from the project that you would like to build. After building both projects, connect the mobile station (The board with external accelerometer and magnetometer sensors) to the computer, then start debugging. By the instructions stated above, determine the COM port of the board and make note of it. Once the board has been programmed, terminate the debugger, and disconnect the mobile station.
+The projects need to be built, and for this we would suggest following the instructions in the Simplicity lab document, however, the one difference would be to copy over the contents of the `main.c` file from the project that you would like to build. After building both projects, connect the mobile station (The board with external accelerometer and magnetometer sensors) to the computer, then start debugging. By the instructions stated above, determine the COM port of the board and make note of it. Once the board has been programmed, terminate the debugger, and disconnect the mobile station.
 	
 Next, connect the base station (The board without an external accelerometer and magnetometer sensor) to the computer, then start debugging. Once again, using the instructions above, determine the COM port of the board and make note of it. Once the board has been programmed, terminate the debugger, and disconnect the base station.
 	
@@ -60,9 +60,9 @@ Connect the mobile station to the computer first, then the base station. These t
 ---
 
 ##### Matrix Calculation:
-Insie the `matrixCalculation` folder, you'll find a `main.c` file. This file can be run on any IDE with a C compiler or online. We used [Reply](http://repl.it) as it was easier for us.
+Insie the `matrixCalculation` folder, you'll find a `main.c` file. This file can be run on any IDE with a C compiler or online. We used [Repl.it](http://repl.it) as it was easier for us.
 
-The calculations in the `main.c` script have been based off the `Basic Positioning Techniques` reading provided to us on Canvas. The test cases and values are also based off the reading. When the script is run, it'll keep printint the current location estimate until our correction vector is less than `0.01` in both x and y directions. 
+The calculations in the `main.c` script have been based off the `Basic Positioning Techniques` reading provided to us on Canvas. The test cases and values are also based off the reading. When the script is run, it'll keep print the current location estimate until our correction vector is less than `0.01` in both x and y directions. 
 
 For all test cases, the algorithm seems to work fine.
 
@@ -79,7 +79,7 @@ Once you've run that script, open up command prompt and run the following comman
 pip install --user pyserial
 ```
 
-The `pythonGUI` script reads the serial data being sent by the base station. The module `pyserial` allows us to do this. The `--user` allows you to install the module for your own user only. Once the module has been downloaded, make sure your `COM` port is set correctly in the code looking at the instructions provided above. When you are sure that everything is correct, run the script and you'll see a window open with a simple room map.
+The `pythonGUI` script reads the serial data being sent by the base station. The module `pyserial` allows us to do this. The `--user` flag allows you to install the module for your own user only. Once the module has been downloaded, make sure your `COM` port is set correctly in the code looking at the instructions provided above. When you are sure that everything is correct, run the script and you'll see a window open with a simple room map.
 
 The dark grey rectangles on the map, two of them to be precise, represent inaccessible areas in the room. The small green squares represent the beacons. The red circle represents the person.
 
@@ -95,13 +95,6 @@ Inside the `csvParser` folder, you'll find `main.py` and `Project_2_beacon_locat
 ### Testing:
 Unfortunately, due to some errors and bugs, we could not get our localisation working. We have included all the source code, including our matrix multiplication which is a major part of our localisation calculations.
 
-Even with fixed size matrices, the program would not run and crash, and we couldn't figure out where this was. The matrix multiplication can be run and tested to see that our logic is in fact correct, but there is some error in our implementation.
+Even with fixed size matrices, the program would not run and crash, and we couldn't figure out where this was occurring. The matrix multiplication can be run and tested to see that our logic is in fact correct, but there is some error in our implementation.
 
-
-
-
-
-HOW TO RUN:
-
-	
-	Finally, run the <>.py script to view the GUI.
+Running the base station on PuTTy will show the index position of the currently received beacon. Running the base station with the pythonGUI will show these values updating on the map.
